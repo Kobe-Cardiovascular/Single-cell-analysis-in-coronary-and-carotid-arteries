@@ -9,12 +9,6 @@ seurat <- readRDS ("~/Desktop/Human_carotid_public/RDS/Human_carotid_sample2_Mye
 
 DimPlot(seurat, reduction = "umap", label = TRUE, repel = TRUE)
 
-
-asym <- subset(seurat, stim == "asym")
-sym <- subset(seurat, stim == "sym")
-
-seurat <- subset(seurat, idents = c(10), invert = TRUE)
-
 #8.6GB
 DefaultAssay(seurat) <- "RNA"
 countexp.Seurat<-sc.metabolism.Seurat(obj = seurat, method = "VISION", imputation = F, ncores = 2, metabolism.type = "KEGG")
